@@ -5,7 +5,7 @@ using UnityEngine;
 public class PipeController : MonoBehaviour
 {
     public static float speed = 3f;
-    Vector3 pipePos;    //获取当前的位置
+    //Vector3 pipePos;    //获取当前的位置
 
     // Use this for initialization
     void Start()

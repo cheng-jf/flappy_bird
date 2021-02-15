@@ -20,7 +20,7 @@
 
 **鸟的飞翔动画**
 
-选中鸟为鸟添加动画，创三个clip，分别是still、fly、die。将三个鸟的状态放在三个关键帧上。在Animator中对这三个clip作流程控制。游戏开始**点击**鼠标或空格后，still（默认状态）—>fly**，播放完后，**fly—>still，**撞死后**still—>die。设置两个trigger（die，fly）来触发状态的切换，希望立即切换的状态需要取消Has Exit Time的勾选
+选中鸟为鸟添加动画，创三个clip，分别是still、fly、die。将三个鸟的状态放在三个关键帧上。在Animator中对这三个clip作流程控制。游戏开始**点击**鼠标或空格后，still（默认状态）—>fly，播放完后，**fly—>still**，撞死后still—>die。设置两个trigger（die，fly）来触发状态的切换，希望立即切换的状态需要取消Has Exit Time的勾选
 
 **脚本控制**
 
@@ -74,9 +74,9 @@
 
   控制restart button的脚本，使其实现点击就切换到主游戏的场景
 
-  **[最终效果](./media/single.mp4)**
+**[最终效果](./media/single.mp4)**
 
-  <video src="./media/single.mp4"></video>
+<video src="./media/single.mp4"></video>
 
 # Flappybirds
 

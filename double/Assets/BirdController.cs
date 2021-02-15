@@ -63,7 +63,6 @@ public class BirdController : MonoBehaviour
             rig.velocity = Vector2.zero;
             anim.SetTrigger("die");
             GameObject.Find("Bird").GetComponent<BirdController>().enabled = false;
-            //GameObject.Find("Bird").GetComponent<AudioSource>().enabled = false;
             GamePlayer.die1 = true;
             GamePlayer.instance.GameOver();
         }
