@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class GamePlayer : MonoBehaviour
 {
     public static GamePlayer instance;             // 创建单例
-    public GameObject gameOver; 
+    public GameObject gameOver;
+    public GameObject Score;
     public Text scoreDisplay;
+    public Text TotalScore;
     private AudioSource bgm;
     private bool die = false;                 
     private int score = 0;
@@ -42,7 +44,11 @@ public class GamePlayer : MonoBehaviour
     public void AddScore()                        
     {
         if (die)
+        {
+            
             return;
+        }
+            
 
         score += 1;
         scoreDisplay.text = "Score: " + score.ToString();
@@ -50,7 +56,9 @@ public class GamePlayer : MonoBehaviour
 
     public void GameOver()                         
     {
-        gameOver.SetActive(true);
+        TotalScore.text = "Your Score: " + score.ToString();
+        gameOver.SetActive(true);   
+        Score.SetActive(false);
         die = true;
         bgm.Stop();
     }

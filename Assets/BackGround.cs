@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackGround : MonoBehaviour
 {
-    private const float width = 15.2f;//草地位置
+    private const float width = 15.2f;//第二个草地位置
     private Vector3 beginPos = new Vector3(0, 0, 0);//最初背景的位置
     public static float speed = 3f;
 

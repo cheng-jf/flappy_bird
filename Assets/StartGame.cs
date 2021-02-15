@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
@@ -8,7 +9,7 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
     // Update is called once per frame
@@ -16,7 +17,7 @@ public class StartGame : MonoBehaviour
     {
         
     }
-    public void OnStartGame()
+    void OnClick()
     {
         SceneManager.LoadScene("flappybird");
     }

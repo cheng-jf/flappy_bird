@@ -5,7 +5,6 @@ using UnityEngine;
 public class BirdController : MonoBehaviour
 {
     public float force=200f;
-    private bool die = false;
     private Animator anim;
     private Rigidbody2D rig;
     public AudioClip[] birdAudio;
@@ -21,9 +20,7 @@ public class BirdController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (die == false)
-        {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))//空格或者鼠标左键触发小鸟飞
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))//空格或者鼠标左键触发小鸟飞
             {
                 anim.SetTrigger("fly");
                 rig.velocity = Vector2.zero;
@@ -32,7 +29,6 @@ public class BirdController : MonoBehaviour
                 birdAudioSource.Play();
 
             }
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)//阻碍
@@ -49,31 +45,24 @@ public class BirdController : MonoBehaviour
             birdAudioSource.clip = birdAudio[2];//添加hit音效
             birdAudioSource.Play();
             rig.velocity = Vector2.zero;
-            die = true;
             GameObject.Find("Bird").GetComponent<BirdController>().enabled = false;
-            //GameObject.Find("bird").GetComponent<AudioSource>().enabled = false;
             anim.SetTrigger("die");
             birdAudioSource.clip = birdAudio[3];//gameover音效
             birdAudioSource.Play();
             GamePlayer.instance.GameOver();
             BackGround.speed = 0f;
             PipeController.speed = 0f;
-            /* GameObject.Find("GameOver").GetComponent<Image>().enabled = true;
-             Invoke("ReStart", 5);*/
         }
     }
     void OnCollisionEnter2D()//地板
     {
-        birdAudioSource.clip = birdAudio[2];//添加hit音效
+        birdAudioSource.clip = birdAudio[2];//hit音效
         birdAudioSource.Play();
         rig.velocity = Vector2.zero;
-        die = true;
-        anim.SetTrigger("die");                        // change current animation clip to Die
+        anim.SetTrigger("die");                        
         GameObject.Find("Bird").GetComponent<BirdController>().enabled = false;
-        //GameObject.Find("bird").GetComponent<AudioSource>().enabled = false;
+        //GameObject.Find("Bird").GetComponent<AudioSource>().enabled = false;
         anim.SetTrigger("die");
-        /*birdAudioSource.clip = birdAudio[3];//gameover音效
-        birdAudioSource.Play();*/
         GamePlayer.instance.GameOver();
         BackGround.speed = 0f;
         PipeController.speed = 0f;
